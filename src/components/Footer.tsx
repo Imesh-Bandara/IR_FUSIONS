@@ -2,12 +2,11 @@ import { useState, type FormEvent } from 'react'
 import { BrandLogo } from './BrandLogo'
 
 interface FooterProps {
-  onOpenContact: () => void
   className?: string
   onNavigate?: (path: string) => void
 }
 
-export function Footer({ onOpenContact, className = '', onNavigate }: FooterProps) {
+export function Footer({ className = '', onNavigate }: FooterProps) {
   const [email, setEmail] = useState('')
 
   const handleNewsletter = (e: FormEvent) => {

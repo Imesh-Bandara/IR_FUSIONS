@@ -3,7 +3,6 @@ import { Header } from './components/Header'
 import { SplineScene } from './components/SplineScene'
 import { Hero } from './components/Hero'
 import { WhyUs } from './components/WhyUs'
-import { RobotGuide } from './components/RobotGuide'
 import { TechnologyShowcase } from './components/TechnologyShowcase'
 import { ProblemSolution } from './components/ProblemSolution'
 import { DevelopmentProcess } from './components/DevelopmentProcess'
@@ -70,7 +69,6 @@ function App() {
             <Hero splineReady={splineReady} heroProgress={heroProgress} />
             <WhyUs />
             <TechnologyShowcase />
-            <RobotGuide />
             <ProblemSolution />
             <DevelopmentProcess />
             <Portfolio />
@@ -81,7 +79,7 @@ function App() {
       </main>
 
       {!isAboutRoute && !isContactRoute && (
-        <Footer onOpenContact={handleOpenContact} className="footer-visible" onNavigate={handleNavigate} />
+        <Footer className="footer-visible" onNavigate={handleNavigate} />
       )}
 
       <ContactModal
