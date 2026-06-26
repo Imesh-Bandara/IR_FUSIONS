@@ -13,6 +13,7 @@ import { ContactModal } from './components/ContactModal'
 import { CtaSection } from './components/CtaSection'
 import { Footer } from './components/Footer'
 import { AboutPage } from './components/AboutPage'
+import { ContactPage } from './components/ContactPage'
 import { useScrollProgress } from './hooks/useScrollProgress'
 
 function App() {
@@ -43,10 +44,11 @@ function App() {
   }
 
   const isAboutRoute = currentRoute === '/about'
+  const isContactRoute = currentRoute === '/contact'
 
   return (
     <>
-      {!isAboutRoute && (
+      {!isAboutRoute && !isContactRoute && (
         <SplineScene onReady={handleSplineReady} heroProgress={heroProgress} />
       )}
 
@@ -61,6 +63,8 @@ function App() {
       <main className="main-visible">
         {isAboutRoute ? (
           <AboutPage onOpenContact={handleOpenContact} />
+        ) : isContactRoute ? (
+          <ContactPage onOpenContact={handleOpenContact} />
         ) : (
           <>
             <Hero splineReady={splineReady} heroProgress={heroProgress} />
@@ -76,7 +80,7 @@ function App() {
         )}
       </main>
 
-      {!isAboutRoute && (
+      {!isAboutRoute && !isContactRoute && (
         <Footer onOpenContact={handleOpenContact} className="footer-visible" onNavigate={handleNavigate} />
       )}
 

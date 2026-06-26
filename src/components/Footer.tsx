@@ -57,7 +57,7 @@ export function Footer({ onOpenContact, className = '', onNavigate }: FooterProp
                 <button
                   type="button"
                   className="footer-link footer-link-btn"
-                  onClick={onOpenContact}
+                  onClick={() => onNavigate?.('/contact')}
                 >
                   Contact
                 </button>

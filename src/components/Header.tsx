@@ -38,16 +38,13 @@ export function Header({ onOpenContact, visible, scrolledPastHero, onNavigate, c
             <li><a href="#services" className="nav-link">Services</a></li>
             <li><a href="#work" className="nav-link">Work</a></li>
             <li>
-              <a
-                href="#contact"
-                className="nav-link"
-                onClick={(e) => {
-                  e.preventDefault()
-                  onOpenContact()
-                }}
+              <button
+                type="button"
+                className={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}
+                onClick={() => onNavigate('/contact')}
               >
                 Contact
-              </a>
+              </button>
             </li>
           </ul>
         </nav>

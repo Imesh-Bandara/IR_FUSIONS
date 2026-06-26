@@ -6,13 +6,15 @@ const founders = [
   {
     name: 'Founder 1',
     role: 'CEO & Co-Founder',
-    image: '/founder-1.svg',
+    image: '/founder1.jpeg',
+    download: '/founder1.jpeg',
     bio: 'Leads strategy, partnerships, and growth initiatives with a sharp focus on turning ambitious ideas into measurable business outcomes.',
   },
   {
     name: 'Founder 2',
     role: 'CTO & Co-Founder',
-    image: '/founder-2.svg',
+    image: '/founder2.jpeg',
+    download: '/founder2.jpeg',
     bio: 'Shapes the product and technology roadmap, turning complex problems into elegant, scalable solutions for modern brands.',
   },
 ]
@@ -76,6 +78,9 @@ export function AboutPage({ onOpenContact }: AboutPageProps) {
                   <p className="founder-role">{founder.role}</p>
                   <h3 className="founder-name">{founder.name}</h3>
                   <p className="founder-bio">{founder.bio}</p>
+                  <a className="btn btn-secondary founder-download" href={founder.download} download>
+                    Download Image
+                  </a>
                 </div>
               </article>
             ))}

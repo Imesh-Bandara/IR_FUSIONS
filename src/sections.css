@@ -26,6 +26,84 @@
   transform: translateY(28px) scale(0.92);
 }
 
+.scroll-reveal.scroll-reveal-left.is-visible {
+  animation: revealSlideLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scroll-reveal.scroll-reveal-right.is-visible {
+  animation: revealSlideRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scroll-reveal.scroll-reveal-up.is-visible {
+  animation: revealSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scroll-reveal.scroll-reveal-down.is-visible {
+  animation: revealSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scroll-reveal.scroll-reveal-pop.is-visible {
+  animation: revealPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes revealSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes revealSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes revealSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(56px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-56px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealPop {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.9);
+  }
+  80% {
+    transform: translateY(-6px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .scroll-reveal.is-visible {
   opacity: 1;
   transform: translate(0, 0);
