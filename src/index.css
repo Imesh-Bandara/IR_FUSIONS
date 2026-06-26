@@ -1753,16 +1753,124 @@ spline-viewer::part(logo),
   }
 }
 
+@media (min-width: 769px) {
+  .mobile-menu-toggle,
+  .header-mobile-nav {
+    display: none !important;
+  }
+}
+
 @media (max-width: 768px) {
-  .nav-links {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .header-container {
+    min-height: 4.5rem;
+    position: relative;
+    gap: 0.75rem;
+  }
+
+  .nav-desktop {
     display: none;
   }
 
+  .mobile-menu-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .mobile-menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .mobile-menu-toggle span {
+    display: block;
+    width: 1.1rem;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 999px;
+    transition: var(--transition-smooth);
+  }
+
+  .header-mobile-nav {
+    display: none;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 0.9rem;
+    margin: 0 1rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    background: rgba(6, 15, 28, 0.96);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.28);
+  }
+
+  .header-mobile-nav.active {
+    display: flex;
+  }
+
+  .header-mobile-nav .nav-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem 0.9rem;
+    border-radius: 10px;
+  }
+
+  .header-mobile-nav .nav-link:hover,
+  .header-mobile-nav .nav-link.active {
+    background: rgba(58, 168, 245, 0.12);
+  }
+
+  .mobile-nav-cta {
+    margin-top: 0.4rem;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero {
+    padding-top: 6.2rem;
+  }
+
   .hero-title {
-    font-size: 2.5rem;
+    font-size: clamp(2.1rem, 7vw, 2.75rem);
+    line-height: 1.08;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.7rem, 5.3vw, 2.3rem);
+  }
+
+  .section-desc {
+    font-size: 0.98rem;
   }
 
   .cta-title {
     font-size: 2rem;
+  }
+
+  .modal-container {
+    width: min(94vw, 540px);
+    padding: 1.8rem 1.25rem;
+  }
+
+  .toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
   }
 }

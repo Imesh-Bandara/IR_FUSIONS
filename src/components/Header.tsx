@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { BrandLogo } from './BrandLogo'
 
 interface HeaderProps {
@@ -9,6 +10,18 @@ interface HeaderProps {
 }
 
 export function Header({ onOpenContact, visible, scrolledPastHero, onNavigate, currentPath }: HeaderProps) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const handleNavigate = (path: string) => {
+    setMobileMenuOpen(false)
+    onNavigate(path)
+  }
+
+  const handleOpenContact = () => {
+    setMobileMenuOpen(false)
+    onOpenContact()
+  }
+
   return (
     <header
       className={`header-wrapper header-clean ${visible ? 'header-visible' : ''} ${scrolledPastHero ? 'header-on-content' : ''}`}
@@ -18,18 +31,18 @@ export function Header({ onOpenContact, visible, scrolledPastHero, onNavigate, c
           type="button"
           className="header-brand-link"
           aria-label="IR FUSIONS home"
-          onClick={() => onNavigate('/')}
+          onClick={() => handleNavigate('/')}
         >
           <BrandLogo variant="header" />
         </button>
 
-        <nav aria-label="Main navigation">
+        <nav aria-label="Main navigation" className="nav-desktop">
           <ul className="nav-links">
             <li>
               <button
                 type="button"
                 className={`nav-link ${currentPath === '/about' ? 'active' : ''}`}
-                onClick={() => onNavigate('/about')}
+                onClick={() => handleNavigate('/about')}
               >
                 About
               </button>
@@ -41,7 +54,7 @@ export function Header({ onOpenContact, visible, scrolledPastHero, onNavigate, c
               <button
                 type="button"
                 className={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}
-                onClick={() => onNavigate('/contact')}
+                onClick={() => handleNavigate('/contact')}
               >
                 Contact
               </button>
@@ -49,7 +62,40 @@ export function Header({ onOpenContact, visible, scrolledPastHero, onNavigate, c
           </ul>
         </nav>
 
-        <button type="button" className="btn btn-primary btn-nav-cta" onClick={onOpenContact}>
+        <button
+          type="button"
+          className="mobile-menu-toggle"
+          aria-expanded={mobileMenuOpen}
+          aria-label="Toggle navigation menu"
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <button type="button" className="btn btn-primary btn-nav-cta" onClick={handleOpenContact}>
+          Get Started
+        </button>
+      </div>
+
+      <div className={`header-mobile-nav ${mobileMenuOpen ? 'active' : ''}`}>
+        <button type="button" className={`nav-link ${currentPath === '/about' ? 'active' : ''}`} onClick={() => handleNavigate('/about')}>
+          About
+        </button>
+        <a href="#technology" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+          Technology
+        </a>
+        <a href="#services" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+          Services
+        </a>
+        <a href="#work" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+          Work
+        </a>
+        <button type="button" className={`nav-link ${currentPath === '/contact' ? 'active' : ''}`} onClick={() => handleNavigate('/contact')}>
+          Contact
+        </button>
+        <button type="button" className="btn btn-primary mobile-nav-cta" onClick={handleOpenContact}>
           Get Started
         </button>
       </div>
