@@ -14,6 +14,8 @@ export type IconName =
   | 'shield'
   | 'target'
   | 'lifebuoy'
+  | 'download'
+  | 'quote'
 
 function IconPaths({ name }: { name: IconName }) {
   switch (name) {
@@ -103,6 +105,21 @@ function IconPaths({ name }: { name: IconName }) {
           <circle cx="12" cy="12" r="3.5" />
           <path d="m6.1 6.1 3.5 3.5M17.9 6.1l-3.5 3.5M6.1 17.9l3.5-3.5M17.9 17.9l-3.5-3.5" />
         </>
+      )
+    case 'download':
+      return (
+        <>
+          <path d="M12 3.5v11.5M8 11l4 4 4-4" />
+          <path d="M4.5 16.5V18a2.5 2.5 0 0 0 2.5 2.5h10a2.5 2.5 0 0 0 2.5-2.5v-1.5" />
+        </>
+      )
+    case 'quote':
+      return (
+        <path
+          fill="currentColor"
+          stroke="none"
+          d="M9.5 6.5C6.5 8 5 10.3 5 13.1c0 2.3 1.5 3.9 3.5 3.9 1.7 0 3-1.3 3-3 0-1.6-1.1-2.8-2.6-2.9.4-1.5 1.6-2.9 3.1-3.7L9.5 6.5Zm8 0C14.5 8 13 10.3 13 13.1c0 2.3 1.5 3.9 3.5 3.9 1.7 0 3-1.3 3-3 0-1.6-1.1-2.8-2.6-2.9.4-1.5 1.6-2.9 3.1-3.7L17.5 6.5Z"
+        />
       )
   }
 }

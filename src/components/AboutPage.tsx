@@ -1,4 +1,5 @@
 import { ScrollReveal } from './ScrollReveal'
+import { Icon } from './icons'
 
 interface AboutPageProps {
   onOpenContact: () => void
@@ -50,6 +51,43 @@ export function AboutPage({ onOpenContact }: AboutPageProps) {
           </div>
         </ScrollReveal>
 
+        <div className="founders-section">
+          <ScrollReveal>
+            <div className="section-header">
+              <p className="section-subtitle">The Founders</p>
+              <h2 className="section-title">Professional leadership with a human-centered approach</h2>
+            </div>
+          </ScrollReveal>
+          <div className="founders-grid">
+            {founders.map((founder, index) => (
+              <ScrollReveal
+                key={founder.name}
+                direction={index % 2 === 0 ? 'left' : 'right'}
+                delay={index * 100}
+              >
+                <article className="founder-card glass">
+                  <div className="founder-media">
+                    <img src={founder.image} alt={founder.name} />
+                    <span className="founder-badge">{founder.role}</span>
+                  </div>
+                  <div className="founder-info">
+                    <h3 className="founder-name">{founder.name}</h3>
+                    <span className="founder-divider" aria-hidden="true" />
+                    <p className="founder-bio">
+                      <Icon name="quote" className="founder-quote-icon" />
+                      {founder.bio}
+                    </p>
+                    <a className="founder-download" href={founder.download} download>
+                      <Icon name="download" />
+                      Download Headshot
+                    </a>
+                  </div>
+                </article>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+
         <div className="about-grid">
           <ScrollReveal direction="left" delay={80}>
             <article className="about-card glass">
@@ -71,36 +109,6 @@ export function AboutPage({ onOpenContact }: AboutPageProps) {
               </ul>
             </article>
           </ScrollReveal>
-        </div>
-
-        <div className="founders-section">
-          <ScrollReveal>
-            <p className="section-subtitle">The Founders</p>
-            <h2 className="section-title">Professional leadership with a human-centered approach</h2>
-          </ScrollReveal>
-          <div className="founders-grid">
-            {founders.map((founder, index) => (
-              <ScrollReveal
-                key={founder.name}
-                direction={index % 2 === 0 ? 'left' : 'right'}
-                delay={index * 100}
-              >
-                <article className="founder-card glass">
-                  <div className="founder-media">
-                    <img src={founder.image} alt={founder.name} />
-                  </div>
-                  <div>
-                    <p className="founder-role">{founder.role}</p>
-                    <h3 className="founder-name">{founder.name}</h3>
-                    <p className="founder-bio">{founder.bio}</p>
-                    <a className="btn btn-secondary founder-download" href={founder.download} download>
-                      Download Image
-                    </a>
-                  </div>
-                </article>
-              </ScrollReveal>
-            ))}
-          </div>
         </div>
       </div>
     </section>
