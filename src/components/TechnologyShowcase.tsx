@@ -1,14 +1,15 @@
 import { ScrollReveal } from './ScrollReveal'
+import { Icon, type IconName } from './icons'
 
 const revealDirections = ['left', 'up', 'right', 'left', 'pop', 'right'] as const
 
-const technologies = [
-  { title: 'Web Development', detail: 'React, APIs, dashboards, portals', icon: '01' },
-  { title: 'Mobile Development', detail: 'Android, iOS, cross-platform apps', icon: '02' },
-  { title: 'Cloud Solutions', detail: 'Scalable hosting, storage, deployment', icon: '03' },
-  { title: 'Database Systems', detail: 'Secure data models and reporting', icon: '04' },
-  { title: 'AI Solutions', detail: 'Automation, insights, smart workflows', icon: '05' },
-  { title: 'Digital Platforms', detail: 'Integrated systems for daily operations', icon: '06' },
+const technologies: { title: string; detail: string; icon: IconName; num: string }[] = [
+  { title: 'Web Development', detail: 'React, APIs, dashboards, portals', icon: 'code', num: '01' },
+  { title: 'Mobile Development', detail: 'Android, iOS, cross-platform apps', icon: 'mobile', num: '02' },
+  { title: 'Cloud Solutions', detail: 'Scalable hosting, storage, deployment', icon: 'cloud', num: '03' },
+  { title: 'Database Systems', detail: 'Secure data models and reporting', icon: 'database', num: '04' },
+  { title: 'AI Solutions', detail: 'Automation, insights, smart workflows', icon: 'spark', num: '05' },
+  { title: 'Digital Platforms', detail: 'Integrated systems for daily operations', icon: 'grid', num: '06' },
 ]
 
 export function TechnologyShowcase() {
@@ -36,7 +37,12 @@ export function TechnologyShowcase() {
               direction={revealDirections[index]}
             >
               <article className="tech-card">
-                <span className="tech-card-index">{item.icon}</span>
+                <div className="tech-card-top">
+                  <span className="tech-card-index">
+                    <Icon name={item.icon} />
+                  </span>
+                  <span className="tech-card-num">{item.num}</span>
+                </div>
                 <h3>{item.title}</h3>
                 <p>{item.detail}</p>
               </article>

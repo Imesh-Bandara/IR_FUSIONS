@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { BrandLogo } from './BrandLogo'
+import { ScrollReveal } from './ScrollReveal'
 
 interface FooterProps {
   className?: string
@@ -18,71 +19,79 @@ export function Footer({ className = '', onNavigate }: FooterProps) {
     <footer className={`footer ${className}`}>
       <div className="container">
         <div className="footer-top">
-          <div className="footer-brand">
-            <a href="#" className="header-brand-link" aria-label="IR FUSIONS home">
-              <BrandLogo variant="header" />
-            </a>
-            <p className="footer-brand-desc">
-              IR FUSIONS creates software, mobile applications, digital marketing strategies, and
-              business technology plans for companies ready to grow.
-            </p>
-          </div>
+          <ScrollReveal direction="up">
+            <div className="footer-brand">
+              <a href="#" className="header-brand-link" aria-label="IR FUSIONS home">
+                <BrandLogo variant="header" />
+              </a>
+              <p className="footer-brand-desc">
+                IR FUSIONS creates software, mobile applications, digital marketing strategies, and
+                business technology plans for companies ready to grow.
+              </p>
+            </div>
+          </ScrollReveal>
 
-          <div className="footer-links-col">
-            <h4 className="footer-col-title">Services</h4>
-            <ul className="footer-links">
-              <li><a href="#services" className="footer-link">Mobile Apps</a></li>
-              <li><a href="#services" className="footer-link">Software Development</a></li>
-              <li><a href="#services" className="footer-link">Social Media Marketing</a></li>
-              <li><a href="#services" className="footer-link">Business Consulting</a></li>
-            </ul>
-          </div>
+          <ScrollReveal direction="up" delay={80}>
+            <div className="footer-links-col">
+              <h4 className="footer-col-title">Services</h4>
+              <ul className="footer-links">
+                <li><a href="#services" className="footer-link">Mobile Apps</a></li>
+                <li><a href="#services" className="footer-link">Software Development</a></li>
+                <li><a href="#services" className="footer-link">Social Media Marketing</a></li>
+                <li><a href="#services" className="footer-link">Business Consulting</a></li>
+              </ul>
+            </div>
+          </ScrollReveal>
 
-          <div className="footer-links-col">
-            <h4 className="footer-col-title">Company</h4>
-            <ul className="footer-links">
-              <li>
-                <button
-                  type="button"
-                  className="footer-link footer-link-btn"
-                  onClick={() => onNavigate?.('/about')}
-                >
-                  About
+          <ScrollReveal direction="up" delay={160}>
+            <div className="footer-links-col">
+              <h4 className="footer-col-title">Company</h4>
+              <ul className="footer-links">
+                <li>
+                  <button
+                    type="button"
+                    className="footer-link footer-link-btn"
+                    onClick={() => onNavigate?.('/about')}
+                  >
+                    About
+                  </button>
+                </li>
+                <li><a href="#technology" className="footer-link">Technology</a></li>
+                <li><a href="#work" className="footer-link">Portfolio</a></li>
+                <li>
+                  <button
+                    type="button"
+                    className="footer-link footer-link-btn"
+                    onClick={() => onNavigate?.('/contact')}
+                  >
+                    Contact
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={240}>
+            <div className="footer-newsletter">
+              <h4 className="footer-col-title">Stay Updated</h4>
+              <p className="footer-newsletter-desc">
+                Get updates on software, marketing, and digital business growth.
+              </p>
+              <form className="newsletter-form" onSubmit={handleNewsletter}>
+                <input
+                  type="email"
+                  className="newsletter-input"
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  aria-label="Email for newsletter"
+                />
+                <button type="submit" className="btn btn-primary newsletter-btn">
+                  Join
                 </button>
-              </li>
-              <li><a href="#technology" className="footer-link">Technology</a></li>
-              <li><a href="#work" className="footer-link">Portfolio</a></li>
-              <li>
-                <button
-                  type="button"
-                  className="footer-link footer-link-btn"
-                  onClick={() => onNavigate?.('/contact')}
-                >
-                  Contact
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          <div className="footer-newsletter">
-            <h4 className="footer-col-title">Stay Updated</h4>
-            <p className="footer-newsletter-desc">
-              Get updates on software, marketing, and digital business growth.
-            </p>
-            <form className="newsletter-form" onSubmit={handleNewsletter}>
-              <input
-                type="email"
-                className="newsletter-input"
-                placeholder="your@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                aria-label="Email for newsletter"
-              />
-              <button type="submit" className="btn btn-primary newsletter-btn">
-                Join
-              </button>
-            </form>
-          </div>
+              </form>
+            </div>
+          </ScrollReveal>
         </div>
 
         <div className="footer-bottom">

@@ -277,6 +277,13 @@ button {
 
 .contact-card {
   padding: 2rem;
+  transition: var(--transition-slow);
+}
+
+.contact-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 48px rgba(26, 143, 232, 0.12);
 }
 
 .contact-card h2 {
@@ -466,6 +473,7 @@ button {
 
 .nav-link:hover {
   color: var(--text-primary);
+  transform: translateY(-1px);
 }
 
 .nav-link:hover::after,
@@ -536,6 +544,13 @@ button {
 
 .about-card {
   padding: 1.75rem;
+  transition: var(--transition-slow);
+}
+
+.about-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 48px rgba(26, 143, 232, 0.12);
 }
 
 .about-card h3 {
@@ -565,6 +580,13 @@ button {
   padding: 1.5rem;
   display: grid;
   gap: 1rem;
+  transition: var(--transition-slow);
+}
+
+.founder-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 54px rgba(26, 143, 232, 0.14);
 }
 
 .founder-media {
@@ -582,6 +604,11 @@ button {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.founder-card:hover .founder-media img {
+  transform: scale(1.05);
 }
 
 .founder-role {
@@ -1696,6 +1723,19 @@ spline-viewer::part(logo),
   z-index: 2;
   opacity: 1;
   pointer-events: all;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: min(560px, 80%);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--brand-blue-light), transparent);
+  opacity: 0.6;
 }
 
 .footer-top {

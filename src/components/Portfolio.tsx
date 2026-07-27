@@ -52,7 +52,13 @@ export function Portfolio() {
                   <span className="project-window-bar" />
                   <span className="project-window-line project-line-wide" />
                   <span className="project-window-line" />
-                  <span className="project-window-chart" />
+                  <div className="project-chart-bars" aria-hidden="true">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
                 </div>
                 <div className="project-body">
                   <span className="project-industry">{project.industry}</span>

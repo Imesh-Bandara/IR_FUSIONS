@@ -7,6 +7,8 @@ interface CtaSectionProps {
 export function CtaSection({ onOpenContact }: CtaSectionProps) {
   return (
     <section className="cta-section" id="contact">
+      <span className="cta-orb cta-orb-1" aria-hidden="true" />
+      <span className="cta-orb cta-orb-2" aria-hidden="true" />
       <div className="container">
         <ScrollReveal direction="pop">
           <div className="cta-box">

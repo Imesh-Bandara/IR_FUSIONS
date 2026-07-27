@@ -1,23 +1,28 @@
 import { ScrollReveal } from './ScrollReveal'
+import { Icon, type IconName } from './icons'
 
 const revealDirections = ['left', 'up', 'down', 'right'] as const
 
-const reasons = [
+const reasons: { title: string; desc: string; icon: IconName }[] = [
   {
     title: 'Innovation First',
     desc: 'We choose modern tools and practical ideas that create measurable business value.',
+    icon: 'bulb',
   },
   {
     title: 'Quality Development',
     desc: 'Clean interfaces, reliable code, responsive layouts, and maintainable systems.',
+    icon: 'shield',
   },
   {
     title: 'Business Understanding',
     desc: 'Technology decisions are aligned with customers, revenue, operations, and growth.',
+    icon: 'target',
   },
   {
     title: 'Long-Term Support',
     desc: 'We stay available after launch for improvements, updates, and technical guidance.',
+    icon: 'lifebuoy',
   },
 ]
 
@@ -44,7 +49,9 @@ export function TrustSection() {
               direction={revealDirections[index]}
             >
               <article className="trust-card">
-                <span className="trust-icon" aria-hidden="true">{index + 1}</span>
+                <span className="trust-icon" aria-hidden="true">
+                  <Icon name={reason.icon} />
+                </span>
                 <h3>{reason.title}</h3>
                 <p>{reason.desc}</p>
               </article>

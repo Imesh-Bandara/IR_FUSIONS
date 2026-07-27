@@ -1,19 +1,23 @@
 import { ScrollReveal } from './ScrollReveal'
+import { Icon, type IconName } from './icons'
 
 const revealDirections = ['left', 'pop', 'right'] as const
 
-const solutions = [
+const solutions: { problem: string; solution: string; icon: IconName }[] = [
   {
     problem: 'Business processes are slow',
     solution: 'We build automation systems that reduce manual work and improve team speed.',
+    icon: 'gauge',
   },
   {
     problem: 'Need stronger online presence',
     solution: 'We create digital marketing strategies that grow visibility and trust.',
+    icon: 'globe',
   },
   {
     problem: 'Need a mobile platform',
     solution: 'We develop high-quality applications with clean UX and dependable performance.',
+    icon: 'mobile',
   },
 ]
 
@@ -41,6 +45,9 @@ export function ProblemSolution() {
             >
               <article className="solution-card">
                 <div>
+                  <span className="solution-icon">
+                    <Icon name={item.icon} />
+                  </span>
                   <span className="solution-label">Problem</span>
                   <h3>{item.problem}</h3>
                 </div>

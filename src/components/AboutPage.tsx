@@ -1,3 +1,5 @@
+import { ScrollReveal } from './ScrollReveal'
+
 interface AboutPageProps {
   onOpenContact: () => void
 }
@@ -29,60 +31,74 @@ export function AboutPage({ onOpenContact }: AboutPageProps) {
   return (
     <section className="about-page">
       <div className="container">
-        <div className="about-hero glass">
-          <p className="section-subtitle">About IR FUSIONS</p>
-          <h1 className="section-title">Technology Meets Business Vision</h1>
-          <p className="section-desc">
-            We combine technology and strategy to help companies improve operations, automate
-            repetitive work, reach more customers, and grow with confidence in the digital world.
-          </p>
-          <div className="about-actions">
-            <button type="button" className="btn btn-primary" onClick={onOpenContact}>
-              Start a Project
-            </button>
-            <a href="/" className="btn btn-secondary">
-              Back to Home
-            </a>
+        <ScrollReveal>
+          <div className="about-hero glass">
+            <p className="section-subtitle">About IR FUSIONS</p>
+            <h1 className="section-title">Technology Meets Business Vision</h1>
+            <p className="section-desc">
+              We combine technology and strategy to help companies improve operations, automate
+              repetitive work, reach more customers, and grow with confidence in the digital world.
+            </p>
+            <div className="about-actions">
+              <button type="button" className="btn btn-primary" onClick={onOpenContact}>
+                Start a Project
+              </button>
+              <a href="/" className="btn btn-secondary">
+                Back to Home
+              </a>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         <div className="about-grid">
-          <article className="about-card glass">
-            <h3>What we do</h3>
-            <p>
-              IR FUSIONS creates software, mobile applications, digital marketing strategies, and
-              business technology plans for companies ready to grow.
-            </p>
-          </article>
+          <ScrollReveal direction="left" delay={80}>
+            <article className="about-card glass">
+              <h3>What we do</h3>
+              <p>
+                IR FUSIONS creates software, mobile applications, digital marketing strategies, and
+                business technology plans for companies ready to grow.
+              </p>
+            </article>
+          </ScrollReveal>
 
-          <article className="about-card glass">
-            <h3>Why clients choose us</h3>
-            <ul>
-              {highlights.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
+          <ScrollReveal direction="right" delay={80}>
+            <article className="about-card glass">
+              <h3>Why clients choose us</h3>
+              <ul>
+                {highlights.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          </ScrollReveal>
         </div>
 
         <div className="founders-section">
-          <p className="section-subtitle">The Founders</p>
-          <h2 className="section-title">Professional leadership with a human-centered approach</h2>
+          <ScrollReveal>
+            <p className="section-subtitle">The Founders</p>
+            <h2 className="section-title">Professional leadership with a human-centered approach</h2>
+          </ScrollReveal>
           <div className="founders-grid">
-            {founders.map((founder) => (
-              <article className="founder-card glass" key={founder.name}>
-                <div className="founder-media">
-                  <img src={founder.image} alt={founder.name} />
-                </div>
-                <div>
-                  <p className="founder-role">{founder.role}</p>
-                  <h3 className="founder-name">{founder.name}</h3>
-                  <p className="founder-bio">{founder.bio}</p>
-                  <a className="btn btn-secondary founder-download" href={founder.download} download>
-                    Download Image
-                  </a>
-                </div>
-              </article>
+            {founders.map((founder, index) => (
+              <ScrollReveal
+                key={founder.name}
+                direction={index % 2 === 0 ? 'left' : 'right'}
+                delay={index * 100}
+              >
+                <article className="founder-card glass">
+                  <div className="founder-media">
+                    <img src={founder.image} alt={founder.name} />
+                  </div>
+                  <div>
+                    <p className="founder-role">{founder.role}</p>
+                    <h3 className="founder-name">{founder.name}</h3>
+                    <p className="founder-bio">{founder.bio}</p>
+                    <a className="btn btn-secondary founder-download" href={founder.download} download>
+                      Download Image
+                    </a>
+                  </div>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
